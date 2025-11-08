@@ -58,17 +58,9 @@ Install in neovim with a package manager like
 [vim-plug](https://github.com/junegunn/vim-plug).
 
 ```lua
---- packer
-use "natecraddock/telescope-zf-native.nvim"
+--- lazy
+{ 'FrancescElies/telescope-zf-native.nvim', build = 'zig build-lib zf/src/zf/clib.zig -O ReleaseSafe -dynamic' },
 ```
-
-If you are using [lazy.nvim](https://github.com/folke/lazy.nvim) and experience troubles installing the plugin, try something like the following (see [this issue](https://github.com/natecraddock/telescope-zf-native.nvim/issues/21) for more details):
-
-```lua
-require('lazy').setup('my_plugins', { rocks = { enabled = false } })
-```
-
-Then load the extension in telescope with default settings.
 
 ```lua
 require("telescope").load_extension("zf-native")
